@@ -1,6 +1,8 @@
 // 02. タプル型の基礎
 // 段階2: 配列の発展形 - 順序と型が決まっている配列
 
+import {read} from "node:fs";
+
 /**
  * 問題1: 基本のタプル型
  * 
@@ -42,5 +44,34 @@ const tupleArray: [number, number, number] = [1, 2, 3];
 
 // タプルは各配列にある値の要素数も固定できる
 
+/**
+ * 問題4: オプショナルタプル
+ * 
+ * ユーザー情報のタプル型を作ってください
+ * 1番目: 名前（文字列）- 必須
+ * 2番目: 年齢（数値）- 必須  
+ * 3番目: 電話番号（文字列）- オプション（なくてもOK）
+ * 
+ * ヒント: オプションは ? を使います
+ */
+
+type UserInfo = [string,number,string?]// あなたの答えをここに
+
+// どちらもエラーが出ないようにしてください
+const user1: UserInfo = ["山田", 30, "090-1234-5678"];
+const user2: UserInfo = ["佐藤", 25]; // 電話番号なし
+
+/**
+ * 問題5: 読み取り専用タプル
+ * 
+ * 座標データを変更できないようにするタプル型を作ってください
+ * 
+ * ヒント: readonly を使います
+ */
+
+type ReadonlyCoordinate = readonly [number,number]// あなたの答えをここに
+
+const fixedPoint: ReadonlyCoordinate = [100, 200];
+// fixedPoint[0] = 999; // これがエラーになれば正解！
 
 export {};
