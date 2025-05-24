@@ -25,9 +25,8 @@ const scores: NumberDictionary = {
  * 上で作った型を使って、以下の変数にも型をつけてください
  */
 
-type Price = any
 
-const prices: Price {
+const prices: NumberDictionary = {
   apple: 100,
   banana: 80,
   orange: 120
