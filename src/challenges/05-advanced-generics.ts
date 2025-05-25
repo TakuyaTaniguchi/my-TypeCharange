@@ -1,6 +1,8 @@
 // 05. Medium準備 - 高度なジェネリクス応用
 // type-challenges Medium レベルに向けた実践的なパターン
 
+import any = jasmine.any;
+
 /**
  * 問題1: Conditional Types (条件型)
  * 
@@ -53,7 +55,9 @@ type Greeting = AddHello<"World">; // "Hello, World" になるはず
  * 2. それを使って実際にプロパティを選択する
  */
 
-type PickByType<T, U> = // あなたの答えをここに
+type PickByType<T, U> = Pick<T,{
+    [K in keyof T]: T[K] extends U ? K : never
+}[keyof T]> // あなたの答えをここに
 
 // テスト
 type Example = { name: string; age: number; isActive: boolean; email: string };
